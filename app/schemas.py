@@ -10,10 +10,6 @@ class UserCreate(BaseModel):
     class Config:
         from_attributes = True
 
-class UserLogin(BaseModel):
-    email: EmailStr
-    password: str
-
 class UserResponse(BaseModel):
     id:UUID4
     name:str
@@ -23,3 +19,18 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+
+#Login
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+#Esquema para la respuesta del token
+class Token(BaseModel):
+    access_token: str
+    token_type: str = "bearer"
+
+# Esquema para los datos que guardaremos en el token (opcional pero útil)
+class TokenData(BaseModel):
+    email: str | None = None
+

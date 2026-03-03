@@ -6,6 +6,7 @@ app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
+#Incluimos el endpoint
 app.include_router(auth.router)
 
 
