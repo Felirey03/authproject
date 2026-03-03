@@ -3,7 +3,6 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base, Session
 from dotenv import load_dotenv
 
-from app.models import User
 
 #Cargamos variables del env
 load_dotenv()

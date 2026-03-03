@@ -2,6 +2,8 @@ from pydantic import BaseModel, EmailStr
 from pydantic import UUID4
 from datetime import datetime
 
+
+#Esquema que recibe para crear el usuario
 class UserCreate(BaseModel):
     name: str
     email: EmailStr
@@ -10,6 +12,8 @@ class UserCreate(BaseModel):
     class Config:
         from_attributes = True
 
+
+#Esquema de respuesta de creacion de usuario
 class UserResponse(BaseModel):
     id:UUID4
     name:str
@@ -20,7 +24,7 @@ class UserResponse(BaseModel):
     class Config:
         from_attributes = True
 
-#Login
+#Esquema del login(lo que debe recibir)
 class UserLogin(BaseModel):
     email: EmailStr
     password: str
@@ -33,4 +37,3 @@ class Token(BaseModel):
 # Esquema para los datos que guardaremos en el token (opcional pero útil)
 class TokenData(BaseModel):
     email: str | None = None
-
